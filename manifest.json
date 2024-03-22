@@ -1,0 +1,15 @@
+{
+    "name": "Tab Randomizer",
+    "version": "1.0",
+    "manifest_version": 3,
+    "description": "Enables random tab selection or complete tab shuffling with a click.",
+    "permissions": ["storage"],
+    "background": {
+        "service_worker": "randomizer.js"
+    },
+    "action": {
+        "default_popup": "",
+        "default_icon": "icon.png"
+    },
+    "options_page": "options.html"
+}
