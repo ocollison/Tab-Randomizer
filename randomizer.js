@@ -11,6 +11,7 @@ function updateTabCount() {
     });
 }
 
+//Listen for change and update the tab count
 chrome.runtime.onInstalled.addListener(updateTabCount);
 chrome.runtime.onStartup.addListener(updateTabCount);
 chrome.windows.onCreated.addListener(updateTabCount);
@@ -18,6 +19,10 @@ chrome.windows.onRemoved.addListener(updateTabCount);
 chrome.tabs.onAttached.addListener(updateTabCount);
 chrome.tabs.onDetached.addListener(updateTabCount);
 chrome.windows.onFocusChanged.addListener(updateTabCount);
+chrome.tabs.onCreated.addListener(updateTabCount);
+chrome.tabs.onRemoved.addListener(updateTabCount);
+chrome.tabs.onAttached.addListener(updateTabCount);
+chrome.tabs.onDetached.addListener(updateTabCount);
 
 chrome.action.onClicked.addListener(() => {
     chrome.storage.sync.get(['randomTab', 'randomOrder'], function(data) {
