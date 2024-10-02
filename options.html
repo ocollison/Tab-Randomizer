@@ -84,6 +84,52 @@
   .slider.round:before {
     border-radius: 50%;
   }
+  .footer {
+    background-color: #6c757c;
+    color: white;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+  }
+  .footer .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+  }
+  .footer button {
+    background-color: #8bc34a;
+    color: white;
+    padding: 8px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #6c757c;
+    border: 3px solid white;
+    font-weight: bold;
+
+  }
+  .footer .highlight {
+    font-size: 25px; 
+  }
+  .footer button:hover {
+    background-color: whitesmoke;
+    color: #6c757c;
+  }
+  .help {
+    background-color: #33373a;
+    color: white;
+    padding: 5px;
+    max-width: 630px;
+    margin: auto;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+  }
 </style>
 </head>
 <body>
@@ -118,12 +164,18 @@
     </label>
   </div>
 </div>
-
-
-<div>
- <center> <h4> Problem, concern or suggestion with extension? Email me at omavicollison21@gmail.com</h4>
- </center>
+<!-- Footer Section -->
+<div class="footer">
+  <div class="footer-content">
+  <p class = "highlight">Liking Tab Randomizer? </p>
+  <button onclick="window.location.href='https://chromewebstore.google.com/detail/tab-randomizer/gcmgefapikipjgepncemckeaboghgdao'">Rate Us</button>
 </div>
+</div>
+<div class="help">
+  <p> Problem, concern or suggestion with extension? Email me at omavicollison21@gmail.com </p>
+</div>
+</div>
+
 </body>
 <script src="options.js"></script>
 </html>
