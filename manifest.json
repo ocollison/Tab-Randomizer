@@ -1,6 +1,6 @@
 {
     "name": "Tab Randomizer",
-    "version": "1.1",
+    "version": "2.0",
     "manifest_version": 3,
     "description": "Enables random tab selection or complete tab shuffling with a click.",
     "permissions": ["storage"],

@@ -3,7 +3,8 @@ function savePreferences() {
   const randomTab = document.getElementById('randomTab').checked;
   const showBadge = document.getElementById('showBadge').checked;
   const randomOrder = document.getElementById('randomOrder').checked;
-  chrome.storage.sync.set({randomTab, showBadge, randomOrder}, function() {});
+  const deleteTab = document.getElementById('deleteTab').checked;
+  chrome.storage.sync.set({randomTab, showBadge, randomOrder, deleteTab}, function() {});
 
 }
 
@@ -12,10 +13,12 @@ function restoreOptions() {
   chrome.storage.sync.get({
       randomTab: true,
       randomOrder: false,
+      deleteTab: false,
       showBadge: true
   }, function(items) {
       document.getElementById('randomTab').checked = items.randomTab;
       document.getElementById('randomOrder').checked = items.randomOrder;
+      document.getElementById('deleteTab').checked = items.deleteTab;
       document.getElementById('showBadge').checked = items.showBadge;
   });
 }

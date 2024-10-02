@@ -25,9 +25,18 @@ chrome.tabs.onAttached.addListener(updateTabCount);
 chrome.tabs.onDetached.addListener(updateTabCount);
 
 chrome.action.onClicked.addListener(() => {
-    chrome.storage.sync.get(['randomTab', 'randomOrder'], function(data) {
-        if (data.randomTab || data.randomOrder) {
+    chrome.storage.sync.get(['randomTab', 'randomOrder', 'deleteTab'], function(data) {
+        if (data.randomTab || data.randomOrder || data.deleteTab) {
             chrome.windows.getCurrent({populate: true}, function(window) {
+                if (data.deleteTab) {
+                    chrome.tabs.query({ active: true}, (tabs) => {
+                        let currentTabId = tabs[0].id; // Get the current active tab ID
+                
+                        // Remove the current tab
+                        chrome.tabs.remove(currentTabId);
+                    });
+                    
+                }
                 if (data.randomOrder) {
                     shuffleArray(window.tabs);
                 }
@@ -53,6 +62,6 @@ function shuffleArray(tabs) {
 }
 
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({randomTab: true, randomOrder: false, showBadge: true}, function() {
+    chrome.storage.sync.set({randomTab: true, randomOrder: false, deleteTab: false, showBadge: true}, function() {
     });
 });
