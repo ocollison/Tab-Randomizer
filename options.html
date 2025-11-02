@@ -19,7 +19,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   h1 {
-    color: Black;
+    color: black;
     text-align: center;
   }
   .section {
@@ -40,7 +40,7 @@
     width: 60px;
     height: 34px;
   }
-  .switch input { 
+  .switch input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -48,72 +48,44 @@
   .slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
     transition: .4s;
   }
   .slider:before {
-    position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    position: absolute;
+    height: 26px; width: 26px;
+    left: 4px; bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
     transition: .4s;
   }
-  input:checked + .slider {
-    background-color: #8bc34a;
-  }
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  .slider.round {
-    border-radius: 34px;
-  }
-  .slider.round:before {
-    border-radius: 50%;
+  input:checked + .slider { background-color: #8bc34a; }
+  input:checked + .slider:before { transform: translateX(26px); }
+  .slider.round { border-radius: 34px; }
+  .slider.round:before { border-radius: 50%; }
+  #savedMsg {
+    text-align: center;
+    color: green;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    margin-top: 10px;
   }
   .footer {
     background-color: #6c757c;
     color: white;
     padding: 20px;
-    max-width: 600px;
-    margin: auto;
     text-align: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-
-  }
-  .footer .footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px; 
   }
   .footer button {
     background-color: #8bc34a;
     color: white;
     padding: 8px 30px;
-    font-size: 16px;
-    cursor: pointer;
     border-radius: 5px;
-    background-color: #6c757c;
     border: 3px solid white;
     font-weight: bold;
-
-  }
-  .footer .highlight {
-    font-size: 25px; 
+    cursor: pointer;
   }
   .footer button:hover {
     background-color: whitesmoke;
@@ -123,61 +95,61 @@
     background-color: #33373a;
     color: white;
     padding: 5px;
-    max-width: 630px;
-    margin: auto;
     text-align: center;
     font-size: 13px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-
   }
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Tab Randomizer</h1>
-  <div class="section">
-    <h2>Select Random tab within window</h2>
-    <label class="switch">
-      <input type="checkbox" id="randomTab" checked>
-      <span class="slider round"></span>
-    </label>
-  </div>
-  <div class="section">
-    <h2>Randomize order of tabs</h2>
-    <label class="switch">
-      <input type="checkbox" id="randomOrder">
-      <span class="slider round"></span>
-    </label>
-  </div>
-  <div class="section">
-    <h2>Delete Current Tab</h2>
-    <label class="switch">
-      <input type="checkbox" id="deleteTab">
-      <span class="slider round"></span>
-    </label>
-  </div>
-  <div class="section">
-    <h2>Show number in icon</h2>
-    <label class="switch">
-      <input type="checkbox" id="showBadge" checked>
-      <span class="slider round"></span>
-    </label>
-  </div>
-</div>
-<!-- Footer Section -->
-<div class="footer">
-  <div class="footer-content">
-  <p class = "highlight">Liking Tab Randomizer? </p>
-  <a href="https://chromewebstore.google.com/detail/tab-randomizer/gcmgefapikipjgepncemckeaboghgdao">
-    <button>Rate Us</button>
-  </a>
-</div>
-</div>
-<div class="help">
-  <p> Problem, concern or suggestion with extension? Email me at omavicollison21@gmail.com </p>
-</div>
-</div>
+  <div class="container">
+    <h1>Tab Randomizer</h1>
 
+    <div class="section">
+      <h2><label for="randomTab">Select random tab within window</label></h2>
+      <label class="switch">
+        <input type="checkbox" id="randomTab" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div class="section">
+      <h2><label for="randomOrder">Randomize order of tabs</label></h2>
+      <label class="switch">
+        <input type="checkbox" id="randomOrder">
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div class="section">
+      <h2><label for="deleteTab">Delete current tab</label></h2>
+      <label class="switch">
+        <input type="checkbox" id="deleteTab">
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div class="section">
+      <h2><label for="showBadge">Show number in icon</label></h2>
+      <label class="switch">
+        <input type="checkbox" id="showBadge" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <p id="savedMsg">Preferences saved</p>
+  </div>
+
+  <div class="footer">
+    <p class="highlight">Liking Tab Randomizer?</p>
+    <a href="https://chromewebstore.google.com/detail/tab-randomizer/gcmgefapikipjgepncemckeaboghgdao" target="_blank">
+      <button>Rate Us</button>
+    </a>
+  </div>
+
+  <div class="help">
+    <p>Problem, concern, or suggestion? Email me at omavicollison21@gmail.com</p>
+  </div>
+
+  <script src="options.js"></script>
 </body>
-<script src="options.js"></script>
 </html>

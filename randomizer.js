@@ -29,13 +29,12 @@ chrome.action.onClicked.addListener(() => {
         if (data.randomTab || data.randomOrder || data.deleteTab) {
             chrome.windows.getCurrent({populate: true}, function(window) {
                 if (data.deleteTab) {
-                    chrome.tabs.query({ active: true}, (tabs) => {
-                        let currentTabId = tabs[0].id; // Get the current active tab ID
-                
-                        // Remove the current tab
-                        chrome.tabs.remove(currentTabId);
+                    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                        if (tabs && tabs[0]) {
+                            const currentTabId = tabs[0].id;
+                            chrome.tabs.remove(currentTabId);
+                        }
                     });
-                    
                 }
                 if (data.randomOrder) {
                     shuffleArray(window.tabs);
